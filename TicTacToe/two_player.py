@@ -20,34 +20,27 @@ def winning(player, symbol):
         global result
         if game_board[i] == symbol and game_board[i+4] == symbol and game_board[i+8] == symbol:
             result = player + " has won!"
-            print (result)
-        else:
-            pass
+            return result
     for i in (1, 5, 9):
         if game_board[i] == symbol and game_board[i+11] == symbol and game_board[i+22] == symbol:
             result = player + " has won!"
-            print(result)
-        else:
-            pass
+            return result
     if game_board[1] == symbol and game_board[16] == symbol and game_board[31]==symbol:
         result = player + " has won!"
-        print(result)
-    else:
-        pass
+        return result
     if game_board[9] == symbol and game_board[16] == symbol and game_board[23] == symbol:
         result = player + " has won!"
-        print(result)
-    else: 
-        pass
+        return result
+    return ""
 for x in range(5):
-    moves ('Player 1', 'X')
-    winning('Player 1', 'X')
+    moves('Player 1', 'X')
+    print(winning('Player 1', 'X'))
     if 'won' in result:
         break
     if x == 4:
         print("It's a tie!")
         break
     moves('Player 2', 'O')
-    winning('Player 2', 'O')
+    print(winning('Player 2', 'O'))
     if 'won' in result:
         break
