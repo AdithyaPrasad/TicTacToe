@@ -12,25 +12,18 @@ def winning(player, symbol):
         global result
         if game_board[i] == symbol and game_board[i+4] == symbol and game_board[i+8] == symbol:
             result = player + " has won!"
-            print (result)
-        else:
-            pass
+            return result
     for i in (1, 5, 9):
         if game_board[i] == symbol and game_board[i+11] == symbol and game_board[i+22] == symbol:
             result = player + " has won!"
-            print(result)
-        else:
-            pass
+            return result
     if game_board[1] == symbol and game_board[16] == symbol and game_board[31]==symbol:
         result = player + " has won!"
-        print(result)
-    else:
-        pass
+        return result
     if game_board[9] == symbol and game_board[16] == symbol and game_board[23] == symbol:
         result = player + " has won!"
-        print(result)
-    else: 
-        pass
+        return result
+    return ""
 for x in range(5):
     play = input("Enter a number to place your piece: ")
     while play in used_number or play not in game_board:
@@ -40,7 +33,7 @@ for x in range(5):
         game_board = game_board.replace(play, 'X')
     print (game_board)
     print("")
-    winning('Player', 'X')
+    print(winning('Player', 'X'))
     if 'won' in result:
         break
     if x == 4:
@@ -55,6 +48,6 @@ for x in range(5):
     time.sleep(1)
     print (game_board)
     print("")
-    winning('Player 2', 'O')
+    print(winning('Player 2', 'O'))
     if 'won' in result:
         break
